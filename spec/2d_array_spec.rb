@@ -31,7 +31,6 @@ describe '2D Arrays' do
   describe '#[]=' do
     it 'sets a cell' do
       subject[2,3] = 99
-      puts subject
       expect(subject[2,3]).to eq 99
     end
   end

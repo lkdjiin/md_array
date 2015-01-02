@@ -32,4 +32,17 @@ class MdArray
     "MdArray #{dim(0)} x #{dim(1)}\n" +
     @arrays.map {|arr| arr.join(' ') }.join("\n")
   end
+
+  def self.seq(dims)
+    result = new(dims)
+    val = 0
+    (0...result.dim(0)).each do |i1|
+      (0...result.dim(1)).each do |i2|
+        result[i1,i2] = val
+        val += 1
+      end
+    end
+    result
+  end
+
 end
