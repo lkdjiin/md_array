@@ -45,4 +45,15 @@ class MdArray
     result
   end
 
+  def self.from_array(arr)
+
+  end
+
+  def slice(r1, r2)
+    sub_array = @arrays[r1].map do |e|
+      e[r2]
+    end
+    MdArray.from_array(sub_array)
+  end
+
 end

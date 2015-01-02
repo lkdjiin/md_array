@@ -45,4 +45,37 @@ describe '2D Arrays' do
     end
   end
 
+  describe '#slice' do
+    # arr = MdArray.seq([3,4])
+    # MdArray 3 x 4
+    # 0  1  2  3
+    # 4  5  6  7
+    # 8  9 10 11
+    #
+    # arr.slice(0..1, 1..2)
+    # MdArray 2 x 2
+    # 1 2
+    # 5 6
+    xit 'slices an md array' do
+      arr = MdArray.seq([3,4])
+      sub_arr = arr.slice(0..1, 1..2)
+      expect(sub_arr.dimensions).to eq 2
+      expect(sub_arr.dimension(0)).to eq 2
+      expect(sub_arr.dimension(1)).to eq 2
+      expect(sub_arr[0,0]).to eq 1
+      expect(sub_arr[0,1]).to eq 2
+      expect(sub_arr[1,0]).to eq 5
+      expect(sub_arr[1,1]).to eq 6
+    end
+  end
+
+  describe '.from_array' do
+    it 'creates an md array' do
+      arr = MdArray.from_array([[1,2,3], [4,5,6]])
+      expect(arr.dimensions).to eq 2
+      expect(arr[0,0]).to eq 1
+      expect(arr[1,2]).to eq 6
+    end
+  end
+
 end
